@@ -28,13 +28,6 @@ extern "C" {
 
 	void LCDSIM_SetPixelIndex(int x, int y, int Index, int LayerIndex)
 	{
-#if 0
-		int R = (Index & 0xF800) >> 11;
-		int G = (Index & 0x07E0) >> 5;
-		int B = Index & 0x001F;
-
-		LCD_Buffer[y][x] = R << 3 << 16 | G << 2 << 8 | B << 3;
-#endif
 		//return;
 #if (LCD_BITSPERPIXEL == 8)
 		unsigned char R = 1.164 * (Index - 16);

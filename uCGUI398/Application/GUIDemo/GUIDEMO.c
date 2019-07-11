@@ -325,6 +325,7 @@ void GUIDEMO_main(void) {
   #endif
   #if (GUI_SUPPORT_CURSOR|GUI_SUPPORT_TOUCH)
     GUI_CURSOR_Show();
+    printf("LinDbg:F:%s,%s[%d]\n", __FILE__, __func__, __LINE__);
   #endif
   GUI_Clear();
   #if GUI_WINSUPPORT
@@ -337,6 +338,7 @@ void GUIDEMO_main(void) {
     /* Calculate position and size of FrameWin[1] */
     _ButtonSizeX = 30;
     _ButtonSizeY = 20;
+    printf("LinDbg:F:%s,%s[%d]\n", __FILE__, __func__, __LINE__);
     /* Create the control window incl. buttons */
     _ahFrameWin[1] = FRAMEWIN_Create("Control", NULL, WM_CF_SHOW | WM_CF_STAYONTOP,
                                                 LCD_GetXSize() - 80, LCD_GetYSize() - 60, 80, 60);
@@ -347,6 +349,7 @@ void GUIDEMO_main(void) {
                                         'N' , WM_CF_SHOW | WM_CF_STAYONTOP | WM_CF_MEMDEV);
     BUTTON_SetText(_ahButton[0], "Stop");
     BUTTON_SetText(_ahButton[1], "Next");
+    printf("LinDbg:F:%s,%s[%d]\n", __FILE__, __func__, __LINE__);
     _UpdateCmdWin();
     WM_ExecIdle();
   #endif
@@ -368,6 +371,7 @@ void GUIDEMO_main(void) {
   /* Run the individual demos !  */
   for (_iTest = 0; _apfTest[_iTest]; _iTest++) {
     GUI_CONTEXT ContextOld;
+    printf("LinDbg:F:%s,%s[%d]\n", __FILE__, __func__, __LINE__);
     GUI_SaveContext(&ContextOld);
     _iTestMinor = 0;
     _UpdateCmdWin();
@@ -377,12 +381,14 @@ void GUIDEMO_main(void) {
   }
   /* Cleanup */
   #if GUI_WINSUPPORT
+  printf("LinDbg:F:%s,%s[%d]\n", __FILE__, __func__, __LINE__);
     for (i = 0; i < countof(_ahFrameWin); i++) {
       WM_DeleteWindow(_ahFrameWin[i]);
     }
     for (i = 0; i < countof(_ahInfoWin); i++) {
       WM_DeleteWindow(_ahInfoWin[i]);
     }
+    printf("LinDbg:F:%s,%s[%d]\n", __FILE__, __func__, __LINE__);
   #endif
 }
 

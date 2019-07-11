@@ -4,7 +4,7 @@
 #include <inttypes.h>
 #include <pthread.h>
 #include <stdlib.h>
-#include <tslib.h>
+//#include <tslib.h>
 #include <stdio.h>
 
 struct tsdev *ts;
@@ -16,13 +16,13 @@ int init_touchscreen()
     if( (tsdevice = getenv("TSLIB_TSDEVICE")) != NULL )
     {
         int i = 0;
-        ts = ts_open(tsdevice,0);
+        //ts = ts_open(tsdevice,0);
         int j = 0;
     }
     else
     {
-        if (!(ts = ts_open("/dev/input/event0", 0)))
-            ts = ts_open("/dev/touchscreen/ucb1x00", 0);
+        //if (!(ts = ts_open("/dev/input/event0", 0)))
+        //    ts = ts_open("/dev/touchscreen/ucb1x00", 0);
     }
 
     if (!ts)
@@ -31,10 +31,10 @@ int init_touchscreen()
         exit(1);
     }
 
-    if (ts_config(ts)) {
-        perror("ts_config");
-        exit(1);
-    }
+    //if (ts_config(ts)) {
+    //    perror("ts_config");
+    //    exit(1);
+    //}
 
 }
 

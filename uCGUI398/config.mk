@@ -23,8 +23,9 @@
 TEXT_BASE=0x30000000
 export TEXT_BASE
 
-CROSS_COMPILE   ?= arm-linux-gnueabi-
-export CROSS_COMPILE
+## CROSS_COMPILE   ?= arm-linux-gnueabihf-
+## export CROSS_COMPILE
+export CROSS_COMPILE=""
 
 DEBUG = n
 
@@ -43,7 +44,8 @@ AFLAGS :=
 
 ARFLAGS := cr
 
-CFLAGS := -Wall -Wstrict-prototypes -mcpu=arm920t -msoft-float -lc -nostdlib
+##CFLAGS := -Wall -Wstrict-prototypes -mcpu=cortex-a9 -mhard-float -lc -nostdlib
+CFLAGS := -Wall -Wstrict-prototypes -lc -nostdlib
 CFLAGS +=
 CFLAGS += -I $(TOPDIR)/GUI/Core -I $(TOPDIR)/GUI/Widget \
 	  -I $(TOPDIR)/GUI/WM -I $(TOPDIR)/Config
@@ -56,7 +58,8 @@ endif
 
 PLATFORM_LIBS := 
 # 加入uclibc标准c库以及数学函数库
-PLATFORM_LIBS += -L/usr/arm-linux-gnueabi/lib -lm -lc 
+#PLATFORM_LIBS += -L/opt_WQ/gcc-linaro-4.9.4-2017.01-x86_64_arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/lib -lm -lc
+PLATFORM_LIBS += -L/lib -L/usr/lib -L/usr/local/lib -lm -lc
 # 加入gcc库
 PLATFORM_LIBS += -L $(shell dirname `$(CC) $(CFLAGS) -print-libgcc-file-name`) -lgcc
 ##LDSCRIPT = $(TOPDIR)/start_code/s3c2416.lds

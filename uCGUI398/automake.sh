@@ -1,8 +1,6 @@
 ### build for ARM9 linux 
-export PATH=/usr/local/arm-2014.05/bin/:$PATH
-
-arm-none-linux-gnueabi-gcc -g -static -lpthread -lm  -L/opt/nuc970bsp/applications/tslib-1.1/install/lib/ -lts  \
--I/opt/nuc970bsp/applications/tslib-1.1/install/include \
+arm-linux-gnueabihf-gcc -g -static -lpthread -lm  -L/opt/WQ_qtenv/tslib1.4/lib -lts  \
+-I/opt/WQ_qtenv/tslib1.4/include \
 -I./Config/ -I./GUI/Core/ -I./GUI/Widget/ -I./GUI/WM/ \
 ./Simulation/FrameBuffer_main.c \
 ./Simulation/GUI_X_Linux.c \
@@ -728,6 +726,4 @@ arm-none-linux-gnueabi-gcc -g -static -lpthread -lm  -L/opt/nuc970bsp/applicatio
 ./Application/GUIDemo/GUIDEMO_ColorList.c \
 ./Application/GUIDemo/GUIDEMO_Bitmap.c \
 ./Application/GUIDemo/GUIDEMO_Dialog.c \
--L/opt/nuc970bsp/applications/tslib-1.1/install/lib/ -lts  -ldl \
 -lm -lpthread -o ucGUI
-

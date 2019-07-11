@@ -22,8 +22,10 @@ Purpose     : Init GUI & call of GUI-demo
 
 void MainTask(void) {
   GUI_Init();
+  printf("LinDbg:F:%s,%s[%d]\n", __FILE__, __func__, __LINE__);
   while(1) {
     GUIDEMO_main();
+    printf("LinDbg:F:%s,%s[%d]\n", __FILE__, __func__, __LINE__);
     GUI_X_Delay(10);
   }
 }

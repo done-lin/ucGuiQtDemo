@@ -7,7 +7,7 @@
 #define GUI_SUPPORT_UNICODE      (1)  /* Support mixed ASCII/UNICODE strings */
 
 #define GUI_DEFAULT_FONT             &GUI_Font16_ASCII
-#define GUI_ALLOC_SIZE                   12500  /* Size of dynamic memory ... For WM and memory devices*/
+#define GUI_ALLOC_SIZE                   51200  /* Size of dynamic memory ... For WM and memory devices*/
 
 /*********************************************************************
 *

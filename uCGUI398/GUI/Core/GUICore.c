@@ -145,12 +145,15 @@ int GUI_Init(void) {
   /* Init system wide globals first */
   GUI_DecChar = '.';
   GUI_X_Init();
+  printf("LinDbg:F:%s,%s[%d]\n", __FILE__, __func__, __LINE__);
   /* Init context */
   _InitContext(&GUI_Context);
   GUITASK_INIT();
   r = LCD_Init();
+  printf("LinDbg:F:%s,%s[%d]\n", __FILE__, __func__, __LINE__);
   #if GUI_WINSUPPORT
     WM_Init();
+    printf("LinDbg:F:%s,%s[%d]\n", __FILE__, __func__, __LINE__);
   #endif
   GUITASK_COPY_CONTEXT();
   #if defined(GUI_TRIAL_VERSION)

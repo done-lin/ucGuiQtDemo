@@ -15,9 +15,10 @@ HEADERS += Config/GUIConf.h
 HEADERS += Config/GUITouchConf.h
 HEADERS += Config/LCDConf.h
 
-LIBS += -L/opt/nuc970bsp/applications/tslib-1.1/install/lib/ -lts -pthread -lpthread -lthread_db
+## LIBS += -L/opt/WQ_qtenv/tslib1.4/lib -lts -pthread -lpthread -lthread_db
+LIBS += -pthread -lpthread
 
-HEADERS += /opt/nuc970bsp/applications/tslib-1.1/install/include/
+##HEADERS += /opt/WQ_qtenv/tslib1.4/lib/include/
 
 SOURCES += Application/GUIDemo/GUIDEMO_Automotive.c
 SOURCES += Application/GUIDemo/GUIDEMO_Bitmap.c
