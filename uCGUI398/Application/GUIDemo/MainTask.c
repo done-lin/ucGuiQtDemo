@@ -26,7 +26,7 @@ void MainTask(void) {
   while(1) {
     GUIDEMO_main();
     printf("LinDbg:F:%s,%s[%d]\n", __FILE__, __func__, __LINE__);
-    GUI_X_Delay(10);
+    GUI_X_Delay(1);
   }
 }
 	 	 			 		    	 				 	  			   	 	 	 	 	 	  	  	      	   		 	 	 		  		  	 		 	  	  			     			       	   	 			  		    	 	     	 				  	 					 	 			   	  	  			 				 		 	 	 			     			 

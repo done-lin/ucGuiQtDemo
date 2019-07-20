@@ -63,31 +63,31 @@ static const char* _sExplain;
 typedef void fVoidVoid(void);
 
 static fVoidVoid * _apfTest[] = {
-  GUIDEMO_HardwareInfo,
-  GUIDEMO_Speed,
-  #if GUI_SUPPORT_MEMDEV
-    GUIDEMO_Graph,
-  #endif
-  GUIDEMO_Bitmap,
-  GUIDEMO_Cursor,
-  GUIDEMO_ShowInternationalFonts,
-  GUIDEMO_ShowColorBar,
-  GUIDEMO_ShowColorList,
-  // GUIDEMO_DemoLUT,
-  GUIDEMO_DemoPolygon,
-  GUIDEMO_Circle,
-  GUIDEMO_ShowMemoryDevice,
-  GUIDEMO_Automotive,
-  GUIDEMO_Navigation,
+//  GUIDEMO_HardwareInfo,
+//  GUIDEMO_Speed,
+//  #if GUI_SUPPORT_MEMDEV
+//    GUIDEMO_Graph,
+//  #endif
+//  GUIDEMO_Bitmap,
+//  GUIDEMO_Cursor,
+//  GUIDEMO_ShowInternationalFonts,
+//  GUIDEMO_ShowColorBar,
+//  GUIDEMO_ShowColorList,
+//  // GUIDEMO_DemoLUT,
+//  GUIDEMO_DemoPolygon,
+//  GUIDEMO_Circle,
+//  GUIDEMO_ShowMemoryDevice,
+//  GUIDEMO_Automotive,
+//  GUIDEMO_Navigation,
 
   #if GUI_WINSUPPORT
     GUIDEMO_DemoProgBar,
-    GUIDEMO_DemoFrameWin,
-    GUIDEMO_Dialog,
-    GUIDEMO_WM,
-    #if GUI_SUPPORT_TOUCH
-      GUIDEMO_Touch,
-    #endif
+//    GUIDEMO_DemoFrameWin,
+//    GUIDEMO_Dialog,
+//    GUIDEMO_WM,
+//    #if GUI_SUPPORT_TOUCH
+//      GUIDEMO_Touch,
+//    #endif
   #endif
   0
 };
@@ -323,10 +323,10 @@ void GUIDEMO_main(void) {
     int i;
     int xSize, ySize, xPos, yPos;
   #endif
-  #if (GUI_SUPPORT_CURSOR|GUI_SUPPORT_TOUCH)
-    GUI_CURSOR_Show();
-    printf("LinDbg:F:%s,%s[%d]\n", __FILE__, __func__, __LINE__);
-  #endif
+//  #if (GUI_SUPPORT_CURSOR|GUI_SUPPORT_TOUCH)
+//    GUI_CURSOR_Show();
+//    printf("LinDbg:F:%s,%s[%d]\n", __FILE__, __func__, __LINE__);
+//  #endif
   GUI_Clear();
   #if GUI_WINSUPPORT
     #if LCD_NUM_DISPLAYS > 1
@@ -340,21 +340,21 @@ void GUIDEMO_main(void) {
     _ButtonSizeY = 20;
     printf("LinDbg:F:%s,%s[%d]\n", __FILE__, __func__, __LINE__);
     /* Create the control window incl. buttons */
-    _ahFrameWin[1] = FRAMEWIN_Create("Control", NULL, WM_CF_SHOW | WM_CF_STAYONTOP,
-                                                LCD_GetXSize() - 80, LCD_GetYSize() - 60, 80, 60);
-    _ahInfoWin[1] = WM_CreateWindowAsChild( 0, 0, 0, 0, WM_GetFirstChild(_ahFrameWin[1]), WM_CF_SHOW | WM_CF_STAYONTOP, &_cbCmdWin, 0);
-    _ahButton[0] = BUTTON_CreateAsChild(4, 20, _ButtonSizeX, _ButtonSizeY, _ahInfoWin[1], 
-                                        'S' , WM_CF_SHOW | WM_CF_STAYONTOP | WM_CF_MEMDEV);
-    _ahButton[1] = BUTTON_CreateAsChild(40, 20, _ButtonSizeX, _ButtonSizeY, _ahInfoWin[1], 
-                                        'N' , WM_CF_SHOW | WM_CF_STAYONTOP | WM_CF_MEMDEV);
-    BUTTON_SetText(_ahButton[0], "Stop");
-    BUTTON_SetText(_ahButton[1], "Next");
+//    _ahFrameWin[1] = FRAMEWIN_Create("Control", NULL, WM_CF_SHOW | WM_CF_STAYONTOP,
+//                                                LCD_GetXSize() - 80, LCD_GetYSize() - 60, 80, 60);
+//    _ahInfoWin[1] = WM_CreateWindowAsChild( 0, 0, 0, 0, WM_GetFirstChild(_ahFrameWin[1]), WM_CF_SHOW | WM_CF_STAYONTOP, &_cbCmdWin, 0);
+//    _ahButton[0] = BUTTON_CreateAsChild(4, 20, _ButtonSizeX, _ButtonSizeY, _ahInfoWin[1],
+//                                        'S' , WM_CF_SHOW | WM_CF_STAYONTOP | WM_CF_MEMDEV);
+//    _ahButton[1] = BUTTON_CreateAsChild(40, 20, _ButtonSizeX, _ButtonSizeY, _ahInfoWin[1],
+//                                        'N' , WM_CF_SHOW | WM_CF_STAYONTOP | WM_CF_MEMDEV);
+//    BUTTON_SetText(_ahButton[0], "Stop");
+//    BUTTON_SetText(_ahButton[1], "Next");
     printf("LinDbg:F:%s,%s[%d]\n", __FILE__, __func__, __LINE__);
     _UpdateCmdWin();
     WM_ExecIdle();
   #endif
   /* Show Intro */
-  GUIDEMO_Intro();
+  //GUIDEMO_Intro();
   #if GUI_WINSUPPORT
     /* Calculate position and size of FrameWin[0] */
     xSize = LCD_GetXSize() / 2;
@@ -362,7 +362,7 @@ void GUIDEMO_main(void) {
     xPos  = LCD_GetXSize() - xSize;
     yPos  = 0;
     /* Create info window and run the individual demos */
-    _ahFrameWin[0] = FRAMEWIN_Create("µC/GUI Demo", NULL, WM_CF_STAYONTOP, 
+    _ahFrameWin[0] = FRAMEWIN_Create("Update Demo", NULL, WM_CF_STAYONTOP,
                                      xPos, yPos, xSize, ySize);
 //    _ahInfoWin[0] = WM_GetFirstChild(_ahFrameWin[0]);
     _ahInfoWin[0] = WM_CreateWindowAsChild(0, 0, 0, 0, WM_GetFirstChild(_ahFrameWin[0]), WM_CF_SHOW | WM_CF_STAYONTOP, 0, 0);
